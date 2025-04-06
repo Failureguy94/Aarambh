@@ -42,26 +42,3 @@ sequenceDiagram
     OAuth2.0-->>Backend: Access Token
     Backend->>JWT: Issue JWT Token
     JWT-->>Frontend: Send Token to Frontend
-graph TD
-  User((User))
-  Frontend[Frontend (React/HTML)]
-  Backend[Backend (Express)]
-  DB[(MongoDB)]
-  Firebase[Firebase Notifications]
-  GoogleMaps[Google Maps API]
-  OAuth[OAuth2 + JWT Security]
-
-  User --> Frontend
-  Frontend --> Backend
-  Backend --> DB
-  Backend --> Firebase
-  Backend --> GoogleMaps
-  Frontend --> OAuth
-graph LR
-  A[Home Page\n(Welcome)] --> B[Login Page\n(OAuth2)]
-  B --> C[Dashboard\n(User Status)]
-  C --> D[Request Form\n(Blood)]
-  D --> E[Donor Matches\nMap + List]
-  E --> F[Thank You Page\nRequest Submitted]
-  C --> G[Hospital Inventory\nFor Hospitals]
-  C --> H[Notifications Page\nUrgent Alerts]
