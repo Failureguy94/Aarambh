@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title src="logo.jpg" alt="LifeLink" >LifeLink - Connecting Blood Donors with Those in Need</title>
+      
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #e53935;
+            --primary-light: #ff6f60;
+            --primary-dark: #ab000d;
+            --secondary: #4caf50;
+            --secondary-light: #80e27e;
+            --secondary-dark: #087f23;
+            --text-light: #ffffff;
+            --text-dark: #212121;
+            --background: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background); /* Revert to a plain background color */
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-light);
+        }
+        
+        .auth-buttons {
+            display: flex;
+        }
+        
+        .btn {
+            padding: 8px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--text-light);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(239, 130, 130, 0.6), rgba(239, 130, 130, 0.6)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color:rgb(255, 0, 0);
+        }
+        
+        .hero-headline {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero-subheading {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+        
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .feature-description {
+            color: #666;
+        }
+        
+        .how-it-works {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            flex-grow: 1;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: var(--text-light);
+        }
+        
+        .testimonial-cards {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            min-width: 300px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links li {
+                margin: 8px 0;
+            }
+            
+            .auth-buttons {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-headline {
+                font-size: 2rem;
+            }
+            
+            .hero-subheading {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="logo.jpg" alt="LifeLink Logo">
+                    LifeLink
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Success Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary"><a href="loginpage.html">Login or Register</a></button>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-headline">Saving Lives Through Connection</h1>
+                <p class="hero-subheading">LifeLink connects blood donors with hospitals and patients in need, creating a network of life-saving opportunities.</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn cta-primary">Become a Donor</button>
+                    <button class="cta-btn cta-secondary">Find Blood</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose LifeLink?</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🩸</div>
+                    <h3 class="feature-title">Emergency Response</h3>
+                    <p class="feature-description">Rapid matching of donors to emergency blood needs, potentially saving critical time during life-threatening situations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3 class="feature-title">Location-Based Matching</h3>
+                    <p class="feature-description">Smart algorithms find the closest available donors, optimizing response time for urgent blood requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💉</div>
+                    <h3 class="feature-title">Vaccination Tracker</h3>
+                    <p class="feature-description">Stay updated on your vaccination schedule with personalized reminders and health recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3 class="feature-title">Hospital Integration</h3>
+                    <p class="feature-description">Direct verification and request system for hospitals ensures legitimate blood requests and donor safety.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Real-time Alerts</h3>
+                    <p class="feature-description">Instant notifications for blood requests, keeping donors informed about urgent needs in their area.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡</div>
+                    <h3 class="feature-title">Donor Safety Protocol</h3>
+                    <p class="feature-description">Smart system prevents frequent donation requests, ensuring donors' health and wellbeing is protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How LifeLink Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Create Your Profile</h3>
+                        <p>Sign up as a donor, patient, or healthcare provider. Complete your profile with relevant medical information and verification details.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Verification Process</h3>
+                        <p>Hospitals and blood banks go through a verification process to ensure all requests are legitimate and all donors are eligible.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Blood Request</h3>
+                        <p>When blood is needed, hospitals can create a request specifying blood type, quantity, and urgency level.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Donor Matching</h3>
+                        <p>Our system automatically finds eligible donors in the vicinity and sends notifications based on proximity and donor availability.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Donation Coordination</h3>
+                        <p>Once a donor accepts, the system facilitates communication between the donor and the hospital for a smooth donation process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Success Stories</h2>
+            <div class="testimonial-cards">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"LifeLink helped me find a donor in less than 30 minutes when my father needed emergency surgery. The quick response saved his life."</p>
+                    <div class="testimonial-author">
+                        <img src="me.jpg" alt="Om Yadav" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Om Yadav</h4>
+                            <p>Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a frequent donor, this platform has made it incredibly convenient to help others. I get notified when there's a need nearby, and the process is seamless."</p>
+                    <div class="testimonial-author">
+                        <img src="netra.jpg" alt="Netra Ahuja" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Netra Ahuja</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Our hospital has seen a 40% increase in blood donation since we started using LifeLink. The verification system ensures we receive only eligible donors."</p>
+                    <div class="testimonial-author">
+                        <img src="sarthak.jpg" alt="Sarthak Parkale" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sarthak Parkale</h4>
+                            <p>City Hospital, Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"LifeLink's platform is amazing. It connects people in need with donors seamlessly."</p>
+                    <div class="testimonial-author">
+                        <img src="ameya.jpg" alt="Ameya Deshmukh" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ameya Deshmukh</h4>
+                            <p>Hospital Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+    <section id="faq"  class="faq">
+        <div class="container">
+        <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Frequently Asked Questions</h2>
+    
+    <div class="space-y-4">
+                                              FAQ Item
+      <details class="bg-white border-l-4 border-blue-500 shadow-md rounded-xl p-4">
+        <summary class="font-semibold cursor-pointer text-lg text-red-700">Who can donate blood?</summary>
+        <div class="mt-2 text-gray-600">
+          Most healthy individuals aged 18–65, weighing at least 50kg, can donate blood. However, eligibility depends on factors like health, travel history, and medications.
+        </div>
+      </details>
+
+      <details class="bg-white border-l-4 border-blue-500 shadow-md rounded-xl p-4">
+        <summary class="font-semibold cursor-pointer text-lg text-red-700">How often can I donate blood?</summary>
+        <div class="mt-2 text-gray-600">
+          You can donate whole blood every 56 days (approximately every 2 months). For platelets or plasma, the interval may differ.
+        </div>
+      </details>
+
+      <details class="bg-white border-l-4 border-blue-500 shadow-md rounded-xl p-4">
+        <summary class="font-semibold cursor-pointer text-lg text-red-700">Is blood donation safe?</summary>
+        <div class="mt-2 text-gray-600">
+          Yes, donating blood is safe. All equipment is sterile and used only once. Trained professionals ensure donor safety.
+        </div>
+      </details>
+
+      <details class="bg-white border-l-4 border-blue-500 shadow-md rounded-xl p-4">
+        <summary class="font-semibold cursor-pointer text-lg text-red-700">Will I feel weak after donating?</summary>
+        <div class="mt-2 text-gray-600">
+          Some people may feel lightheaded briefly. It’s important to rest, stay hydrated, and eat something after donating.
+        </div>
+      </details>
+
+      <details class="bg-white border-l-4 border-blue-500 shadow-md rounded-xl p-4">
+        <summary class="font-semibold cursor-pointer text-lg text-red-700">How does your platform match donors and patients?</summary>
+        <div class="mt-2 text-gray-600">
+          Our system uses location-based matching and real-time alerts to connect donors with nearby patients or hospitals in need.
+        </div>
+      </details>
+    </div>
+    </div>
+    </section>
+    <!-- -------------------------------------------------------------------------------------------------- -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>LifeLink</h3>
+                    <p>Connecting donors with those in need, one drop at a time.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Donors</h3>
+                    <ul>
+                        <li><a href="https://www.redcrossblood.org/donate-blood/blood-donation-process/what-happens-to-donated-blood.html" target="_blank">Donation Process</a></li>
+                        <li><a href="https://www.who.int/campaigns/world-blood-donor-day/2018/who-can-give-blood" target="_blank">Eligibility Criteria</a></li>
+                        <li><a href="https://www.biospecialty.com/health-benefits-of-blood-donation" target="_blank">Health Benefits</a></li>
+                        <li><a href="https://stanfordbloodcenter.org/donate-blood/blood-donation-facts/post-donation/" target="_blank">Post-Donation Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: sarthak14313@gmail.com</li>
+                        <li>Phone: +91 932129736</li>
+                        <li>Address: IIIT Nagpur</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LifeLink by Team Aarambh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
