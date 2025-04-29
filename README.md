@@ -9,7 +9,7 @@ It ensures critical blood requirements are met quickly by enabling real-time ale
 ## 🌐 Hosted Demo
 
 🔗 **Live Website**: [https://aarambh-xcza.vercel.app](https://aarambh-xcza.vercel.app)  
-📄 **Project Presentation**: Viewable in the [GitHub repository](./)
+📄 **Project Presentation**: Viewable in the [GitHub repository](https://github.com/Failureguy94/Aarambh/blob/main/Blood%20Donation%20Network%20%E2%80%93%20Connects%20blood%20donors%20with%20hospitals%20and%20patients%20_20250406_234819_0000.pdf)
 
 ---
 
