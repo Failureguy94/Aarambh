@@ -399,16 +399,16 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="fronty.html" class="logo">
+                <a href="index.html" class="logo">
                     <img src="C:\Users\sarth\OneDrive\Desktop\FInal Aarambh\WhatsApp Image 2025-04-06 at 20.13.42_46a234b7.jpg" alt="LifeLink Logo">
                     LifeLink
                 </a>
                 <ul class="nav-links">
-                    <li><a href="fronty.html">Features</a></li>
-                    <li><a href="fronty.html#how-it-works">How It Works</a></li>
-                    <li><a href="fronty.html#testimonials">Success Stories</a></li>
-                    <li><a href="fronty.html#faq">FAQ</a></li>
-                    <li><a href="fronty.html#contact">Contact</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#testimonials">Success Stories</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -428,18 +428,18 @@
                     </div>
                     
                     <!-- Login Form -->
-                    <form class="auth-form active" id="login-form">
+                    <form class="auth-form active" id="login-form" action="login.php" method="POST">
                         <h2 class="form-title">Welcome Back</h2>
                         
                         <div class="form-group">
                             <label for="login-email" class="form-label">Email</label>
-                            <input type="email" id="login-email" class="form-input" placeholder="Enter your email address" required>
+                            <input type="email" id="login-email" name="email" class="form-input" placeholder="Enter your email address" required>
                             <div class="error-message" id="login-email-error">Please enter a valid email address</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="login-password" class="form-label">Password</label>
-                            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required>
+                            <input type="password" id="login-password" name="password" class="form-input" placeholder="Enter your password" required>
                             <div class="error-message" id="login-password-error">Password must be at least 6 characters</div>
                         </div>
                         
@@ -471,8 +471,10 @@
                     </form>
                     
                     <!-- Register Form -->
-                    <form class="auth-form" id="register-form">
+                    <form class="auth-form" id="register-form" action="register.php" method="POST">
                         <h2 class="form-title">Create an Account</h2>
+                        
+                        <input type="hidden" id="user-type-field" name="user_type" value="individual">
                         
                         <div class="user-type-selection">
                             <div class="user-type" data-type="individual">
@@ -493,12 +495,12 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="register-email" class="form-label">Email</label>
-                                <input type="email" id="register-email" class="form-input" placeholder="Enter your email address" required>
+                                <input type="email" id="register-email" name="email" class="form-input" placeholder="Enter your email address" required>
                                 <div class="error-message" id="register-email-error">Please enter a valid email address</div>
                             </div>
                             <div class="form-group">
                                 <label for="register-phone" class="form-label">Phone Number</label>
-                                <input type="tel" id="register-phone" class="form-input" placeholder="Enter your phone number" required>
+                                <input type="tel" id="register-phone" name="phone" class="form-input" placeholder="Enter your phone number" required>
                                 <div class="error-message" id="register-phone-error">Please enter a valid phone number</div>
                             </div>
                         </div>
@@ -506,7 +508,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="register-password" class="form-label">Password</label>
-                                <input type="password" id="register-password" class="form-input" placeholder="Create a password" required>
+                                <input type="password" id="register-password" name="password" class="form-input" placeholder="Create a password" required>
                                 <div class="error-message" id="register-password-error">Password must be at least 8 characters with letters and numbers</div>
                             </div>
                             <div class="form-group">
@@ -521,22 +523,22 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="register-firstname" class="form-label">First Name</label>
-                                    <input type="text" id="register-firstname" class="form-input" placeholder="Enter your first name" required>
+                                    <input type="text" id="register-firstname" name="first_name" class="form-input" placeholder="Enter your first name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="register-lastname" class="form-label">Last Name</label>
-                                    <input type="text" id="register-lastname" class="form-input" placeholder="Enter your last name" required>
+                                    <input type="text" id="register-lastname" name="last_name" class="form-input" placeholder="Enter your last name" required>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="register-dob" class="form-label">Date of Birth</label>
-                                    <input type="date" id="register-dob" class="form-input" required>
+                                    <input type="date" id="register-dob" name="dob" class="form-input" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="register-blood-type" class="form-label">Blood Type</label>
-                                    <select id="register-blood-type" class="form-select" required>
+                                    <select id="register-blood-type" name="blood_group" class="form-select" required>
                                         <option value="" disabled selected>Select your blood type</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
@@ -553,18 +555,18 @@
                             
                             <div class="form-group">
                                 <label for="register-address" class="form-label">Address</label>
-                                <input type="text" id="register-address" class="form-input" placeholder="Enter your address" required>
+                                <input type="text" id="register-address" name="address" class="form-input" placeholder="Enter your address" required>
                             </div>
                             
                             <div class="form-check">
-                                <input type="checkbox" id="register-donor" class="form-check-input">
+                                <input type="checkbox" id="register-donor" name="willing_to_donate" class="form-check-input">
                                 <label for="register-donor">I am willing to be a blood donor</label>
                             </div>
                             
                             <div id="donor-info" style="display: none;">
                                 <div class="form-group">
                                     <label for="register-last-donation" class="form-label">Last Donation Date (if applicable)</label>
-                                    <input type="date" id="register-last-donation" class="form-input">
+                                    <input type="date" id="register-last-donation" name="last_donation_date" class="form-input">
                                 </div>
                                 
                                 <div class="form-check">
@@ -578,28 +580,28 @@
                         <div class="additional-fields" id="hospital-fields">
                             <div class="form-group">
                                 <label for="register-hospital-name" class="form-label">Hospital Name</label>
-                                <input type="text" id="register-hospital-name" class="form-input" placeholder="Enter hospital name">
+                                <input type="text" id="register-hospital-name" name="hospital_name" class="form-input" placeholder="Enter hospital name">
                             </div>
                             
                             <div class="form-group">
                                 <label for="register-hospital-id" class="form-label">Hospital Registration ID</label>
-                                <input type="text" id="register-hospital-id" class="form-input" placeholder="Enter hospital registration ID">
+                                <input type="text" id="register-hospital-id" name="hospital_id" class="form-input" placeholder="Enter hospital registration ID">
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="register-hospital-address" class="form-label">Hospital Address</label>
-                                    <input type="text" id="register-hospital-address" class="form-input" placeholder="Enter hospital address">
+                                    <input type="text" id="register-hospital-address" name="hospital_address" class="form-input" placeholder="Enter hospital address">
                                 </div>
                                 <div class="form-group">
                                     <label for="register-hospital-city" class="form-label">City</label>
-                                    <input type="text" id="register-hospital-city" class="form-input" placeholder="Enter city">
+                                    <input type="text" id="register-hospital-city" name="hospital_city" class="form-input" placeholder="Enter city">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="register-hospital-contact-person" class="form-label">Contact Person</label>
-                                <input type="text" id="register-hospital-contact-person" class="form-input" placeholder="Enter name of contact person">
+                                <input type="text" id="register-hospital-contact-person" name="hospital_contact_person" class="form-input" placeholder="Enter name of contact person">
                             </div>
                             
                             <div class="form-check">
@@ -612,28 +614,28 @@
                         <div class="additional-fields" id="bloodbank-fields">
                             <div class="form-group">
                                 <label for="register-bloodbank-name" class="form-label">Blood Bank Name</label>
-                                <input type="text" id="register-bloodbank-name" class="form-input" placeholder="Enter blood bank name">
+                                <input type="text" id="register-bloodbank-name" name="bloodbank_name" class="form-input" placeholder="Enter blood bank name">
                             </div>
                             
                             <div class="form-group">
                                 <label for="register-bloodbank-id" class="form-label">Blood Bank License Number</label>
-                                <input type="text" id="register-bloodbank-id" class="form-input" placeholder="Enter license number">
+                                <input type="text" id="register-bloodbank-id" name="license_no" class="form-input" placeholder="Enter license number">
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="register-bloodbank-address" class="form-label">Blood Bank Address</label>
-                                    <input type="text" id="register-bloodbank-address" class="form-input" placeholder="Enter blood bank address">
+                                    <input type="text" id="register-bloodbank-address" name="bloodbank_address" class="form-input" placeholder="Enter blood bank address">
                                 </div>
                                 <div class="form-group">
                                     <label for="register-bloodbank-city" class="form-label">City</label>
-                                    <input type="text" id="register-bloodbank-city" class="form-input" placeholder="Enter city">
+                                    <input type="text" id="register-bloodbank-city" name="bloodbank_city" class="form-input" placeholder="Enter city">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="register-bloodbank-capacity" class="form-label">Storage Capacity (units)</label>
-                                <input type="number" id="register-bloodbank-capacity" class="form-input" placeholder="Enter storage capacity">
+                                <input type="number" id="register-bloodbank-capacity" name="bloodbank_capacity" class="form-input" placeholder="Enter storage capacity">
                             </div>
                             
                             <div class="form-check">
@@ -689,6 +691,7 @@
                 
                 // Show corresponding fields based on user type
                 const userType = this.getAttribute('data-type');
+                document.getElementById('user-type-field').value = userType;
                 document.querySelectorAll('.additional-fields').forEach(field => {
                     field.classList.remove('active');
                 });
@@ -704,8 +707,6 @@
         
         // Form validation
         document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Simple validation for login form
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
@@ -713,6 +714,7 @@
             
             // Email validation
             if (!validateEmail(email)) {
+                e.preventDefault();
                 document.getElementById('login-email-error').classList.add('show');
                 isValid = false;
             } else {
@@ -721,28 +723,23 @@
             
             // Password validation
             if (password.length < 6) {
+                e.preventDefault();
                 document.getElementById('login-password-error').classList.add('show');
                 isValid = false;
             } else {
                 document.getElementById('login-password-error').classList.remove('show');
             }
             
-            if (isValid) {
-                // Here you would typically send data to your backend
-                alert('Login successful! Redirecting to dashboard...');
-                // Redirect to dashboard or homepage
-                // window.location.href = 'dashboard.html';
-            }
+            // Form will submit if isValid is true
         });
         
         document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             let isValid = true;
             
             // Email validation
             const email = document.getElementById('register-email').value;
             if (!validateEmail(email)) {
+                e.preventDefault();
                 document.getElementById('register-email-error').classList.add('show');
                 isValid = false;
             } else {
@@ -752,6 +749,7 @@
             // Phone validation
             const phone = document.getElementById('register-phone').value;
             if (!validatePhone(phone)) {
+                e.preventDefault();
                 document.getElementById('register-phone-error').classList.add('show');
                 isValid = false;
             } else {
@@ -763,6 +761,7 @@
             const confirmPassword = document.getElementById('register-confirm-password').value;
             
             if (!validatePassword(password)) {
+                e.preventDefault();
                 document.getElementById('register-password-error').classList.add('show');
                 isValid = false;
             } else {
@@ -770,6 +769,7 @@
             }
             
             if (password !== confirmPassword) {
+                e.preventDefault();
                 document.getElementById('register-confirm-password-error').classList.add('show');
                 isValid = false;
             } else {
@@ -778,23 +778,14 @@
             
             // Terms checkbox validation
             if (!document.getElementById('register-terms').checked) {
+                e.preventDefault();
                 document.getElementById('register-terms-error').classList.add('show');
                 isValid = false;
             } else {
                 document.getElementById('register-terms-error').classList.remove('show');
             }
             
-            if (isValid) {
-                // Here you would typically send data to your backend
-                document.getElementById('success-message').classList.add('show');
-                document.getElementById('register-form').reset();
-                
-                // Switch to login tab after successful registration
-                setTimeout(() => {
-                    document.getElementById('login-tab').click();
-                    document.getElementById('success-message').classList.remove('show');
-                }, 3000);
-            }
+            // Form will submit to register.php if isValid is true
         });
         
         // Helper validation functions

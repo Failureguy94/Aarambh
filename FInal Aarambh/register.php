@@ -2,24 +2,12 @@
     include 'db.php'; // make sure db.php connects properly to your database
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // if(isset($_POST['individual'])){
-        $user_type = 'individual';
-    // }
-    // else  if(isset($_POST['bloodbank'])){
-    //     $user_type = 'bloodbank';
-    // }
-    // else  if(isset($_POST['hospital'])){
-    //     $user_type = 'hospital';
-    // }
-   // coming from hidden field or selection
-    // $user_type = $_POST['user_type']; // coming from hidden field or selection
+        // Get user type from form submission
+        $user_type = isset($_POST['user_type']) ? mysqli_real_escape_string($conn, $_POST['user_type']) : 'individual';
   
-    // $email ='sarthak1431@gmail.com';
-    // $phone ='1234567890';
-    // $password ='asdfghjkl123';
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if ($user_type == 'individual') {
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -468,17 +456,17 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="fronty.html" class="logo">
+                <a href="index.html" class="logo">
                     <img src="C:\Users\sarth\OneDrive\Desktop\FInal Aarambh\WhatsApp Image 2025-04-06 at 20.13.42_46a234b7.jpg"
                         alt="LifeLink Logo">
                     LifeLink
                 </a>
                 <ul class="nav-links">
-                    <li><a href="fronty.html">Features</a></li>
-                    <li><a href="fronty.html#how-it-works">How It Works</a></li>
-                    <li><a href="fronty.html#testimonials">Success Stories</a></li>
-                    <li><a href="fronty.html#faq">FAQ</a></li>
-                    <li><a href="fronty.html#contact">Contact</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#testimonials">Success Stories</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
